@@ -1,13 +1,11 @@
 <template>
-    <div class="row q-mb-sm">
+    <div class="row">
     <q-input
-        outlined
         autofocus
         label="Task name"
         :value="name"
         @input="$emit('update:name', $event)"
         class="col"
-        :rules="[val => !!val || 'Field is required']"
         ref="name"
         >
         <template v-slot:append>

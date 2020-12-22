@@ -1,46 +1,25 @@
 <template>
     <q-item 
+        style="height: 56px;"
         @click="updateTaskFunc(id, task)"
         clickable
-        :class="!task.completed ? 'white' : 'bg-blue-1'"
-        padding>
-        <q-item-section side top>
-            <q-checkbox v-model="task.completed" color="primary" />
+        :class="!task.completed ? 'white' : 'white'"
+        >
+        <q-item-section side>
+            <q-checkbox 
+                v-model="task.completed" 
+                color="secondary" 
+                size="lg"
+            />
         </q-item-section>
 
         <q-item-section>
-            <q-item-label>
+            <q-item-label class="text-subtitle1">
             {{ task.name }}
             </q-item-label>
             <q-item-label caption>
             {{ task.description }}
             </q-item-label>
-        </q-item-section>
-
-        <q-item-section 
-            v-if="task.dueDate"
-            side>
-            <div class="row">
-            <div class="column">
-                <q-item-label 
-                caption
-                class="row justify-end"
-                >{{ task.dueDate }}</q-item-label>
-                <q-item-label 
-                caption
-                class="row justify-end"
-                >
-                <small>{{ task.dueTime }}</small>
-                </q-item-label>
-            </div>
-            <div class="column justify-center">
-                <q-icon 
-                name="event" 
-                size="18px"
-                class="q-ml-sm"
-                />
-            </div>
-            </div>
         </q-item-section>
 
         <q-item-section side>
@@ -106,5 +85,7 @@
 </script>
 
 <style>
-
+    .q-checkbox__bg {
+        border-radius: 100px;
+    }
 </style>

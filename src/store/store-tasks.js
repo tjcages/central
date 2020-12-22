@@ -4,29 +4,29 @@ import { uid } from 'quasar'
 const state = {
     tasks: {
         'ID1': {
-            name: 'Go to store',
-            description: 'Notify me about updates to apps or games',
-            completed: false,
+            name: 'Create initial layout for homepage',
+            description: '',
+            completed: true,
             dueDate: '2019/05/12',
             dueTime: '6:30pm'
         },
         'ID2': {
-            name: 'Get cherries',
-            completed: false,
+            name: 'Fixing icons with transparent background',
+            completed: true,
             dueDate: '2019/05/13',
             dueTime: '2:45pm'
         },
         'ID3': {
-            name: 'Get apples',
-            description: 'Notify me about updates to apps or games',
+            name: 'Discussions regarding workflow improvements',
+            description: '',
             completed: false,
             dueDate: '2019/05/14',
             dueTime: '11:00am'
         },
         'ID4': {
-            name: 'Trip a kid',
-            description: 'Not my fault',
-            completed: true,
+            name: 'Create quotation app for redesign project',
+            description: '',
+            completed: false,
             dueDate: '2019/05/14',
             dueTime: '11:00am'
         }
@@ -66,23 +66,24 @@ const actions = {
 
 // Methods that get the data from a state – can also manipulate data
 const getters = {
-    tasksTodo: (state) => {
+    tasksToday: (state) => {
         let tasks = {}
         Object.keys(state.tasks).forEach(function(key) {
             let task = state.tasks[key]
-            if (!task.completed) {
-                tasks[key] = task
-            }
+            tasks[key] = task // ALL TASKS
+            // if (!task.dueDate) {
+            //     tasks[key] = task
+            // }
         })
         return tasks
     },
-    tasksCompleted: (state) => {
+    tasksUpcoming: (state) => {
         let tasks = {}
         Object.keys(state.tasks).forEach(function(key) {
-            let task = state.tasks[key]
-            if (task.completed) {
-                tasks[key] = task
-            }
+            let task = state.tasks[key] // NO TASKS
+            // if (task.completed) {
+            //     tasks[key] = task
+            // }
         })
         return tasks
     }

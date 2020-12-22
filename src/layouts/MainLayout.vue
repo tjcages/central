@@ -1,5 +1,5 @@
 <template>
-  <q-layout view="lHh LpR fFf">
+  <q-layout view="hHh lpR fFf">
     <q-header reveal class="bg-negative" style="height: 0px">
       <q-toolbar>
         <q-btn flat @click="leftDrawerOpen = !leftDrawerOpen" round dense icon="menu" color="white" />
@@ -19,8 +19,10 @@
     </q-footer>
 
     <q-drawer
-      show-if-above 
       v-model="leftDrawerOpen" 
+      overlay
+      behavior="mobile"
+      elevated
       side="left" 
       bordered 
       :width="232"
@@ -78,9 +80,7 @@
       </div>
     </q-drawer>
 
-    <q-page-container>
-      <router-view />
-    </q-page-container>
+    <router-view />
   </q-layout>
 </template>
 

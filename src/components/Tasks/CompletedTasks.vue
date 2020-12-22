@@ -3,13 +3,10 @@
         <list-header
         bgColor="bg-info"
         >Completed</list-header>
-        <q-list 
-        bordered
-        separator
-        >
+        <q-list>
         
         <task
-            v-for="(task, key) in tasksCompleted"
+            v-for="(task, key) in tasksUpcoming"
             :key="key"
             :task="task"
             :id="key"
@@ -21,7 +18,7 @@
 <script>
 import ListHeader from '../Shared/ListHeader.vue'
 export default {
-    props: ['tasksCompleted'],
+    props: ['tasksUpcoming'],
     components: {
       'task': require('components/Tasks/Task.vue').default,
       'list-header': require('components/Shared/ListHeader.vue').default
@@ -30,5 +27,5 @@ export default {
 </script>
 
 <style>
-
+    
 </style>

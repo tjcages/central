@@ -1,37 +1,28 @@
 <template>
-  <q-page class="q-py-lg">
+  <div class="q-py-lg">
 
     <no-tasks
-    v-if="!Object.keys(tasksTodo).length"
+    v-if="!Object.keys(tasksToday).length"
     ></no-tasks>
     
     <tasks-todo
-    v-else
-    :tasksTodo="tasksTodo"
+      v-else
+      :tasksToday="tasksToday"
     />
 
     <tasks-complete
-    v-if="Object.keys(tasksCompleted).length"
-    :tasksCompleted="tasksCompleted"
-    class="q-mt-lg"
+      v-if="Object.keys(tasksUpcoming).length"
+      :tasksUpcoming="tasksUpcoming"
+      class="q-mt-lg"
     />
 
 
-    <div class="absolute-bottom-right text-center q-mb-lg q-mr-lg">
-      <q-btn
-      @click="showAddTask = true"
-      round
-      dense
-      color="primary"
-      size="24px"
-      icon="add"
-      />
-    </div>
+    <add-task-footer />
 
     <q-dialog v-model="showAddTask">
       <add-task @close="showAddTask = false"/>
     </q-dialog>
-  </q-page>
+  </div>
 </template>
 
 <script>
@@ -44,7 +35,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters('tasks', ['tasksTodo', 'tasksCompleted'])
+    ...mapGetters('tasks', ['tasksToday', 'tasksUpcoming'])
   },
   mounted() {
     this.$root.$on('showAddTask', () => {
@@ -56,7 +47,8 @@ export default {
     'tasks-todo': require('components/Tasks/TodoTasks.vue').default,
     'tasks-complete': require('components/Tasks/CompletedTasks.vue').default,
     'add-task': require('components/Tasks/Modals/AddTask.vue').default,
-    'no-tasks': require('components/Tasks/NoTasks.vue').default
+    'no-tasks': require('components/Tasks/NoTasks.vue').default,
+    'add-task-footer': require('components/Shared/AddTaskFooter.vue').default
   }
 }
 </script>

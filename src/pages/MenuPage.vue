@@ -1,6 +1,6 @@
 <template>
-  <q-page class="q-pa-lg bg-negative">
-    <q-page-container flex class="column q-mx-lg q-mt-xl">
+  <div class="q-pa-lg bg-negative">
+    <div class="column q-mx-lg q-mt-xl">
       <span class="text-bold text-h4 text-white">Hi Samantha</span>
       <span class="text-subtitle1 text-grey-5 q-mt-sm">Welcome back to your workspace!</span>
       <q-input 
@@ -17,7 +17,7 @@
         </template>
       </q-input>
 
-      <q-page-container class="q-mt-lg">
+      <div class="q-mt-lg">
         <span class="text-h6 text-white q-mr-md">Projects</span>
         <span class="text-subtitle1 text-grey-5">(13)</span>
         
@@ -34,9 +34,9 @@
             </div>
           </div>
         </div>
-      </q-page-container>
-    </q-page-container>
-  </q-page>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>

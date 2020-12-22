@@ -1,16 +1,19 @@
 <template>
   <q-splitter 
-    v-model="splitterModel" 
     class="row bg-negative" 
     separator-class="bg-negative"
     separator-style="width: 3px"
     >
       <template v-slot:before>
-        <menu-page class="col" />
+        <q-page>
+          <menu-page class="col" />
+        </q-page>
       </template>
 
       <template v-slot:after>
-        <project-page class="col" />
+        <q-page>
+          <project-page class="col" />
+        </q-page>
       </template>
   </q-splitter>
 </template>
@@ -19,7 +22,7 @@
 export default {
     data () {
         return {
-            splitterModel: 50 // start at 50%
+            splitterModel: 50 // start at 50% ___ Not implemented: v-model="splitterModel" 
         }
     },
     components: {

@@ -4,7 +4,7 @@
     >Upcoming</list-header>
       <q-list>
         <task
-          v-for="(task, key) in tasksTodo"
+          v-for="(task, key) in tasksToday"
           :key="key"
           :task="task"
           :id="key"
@@ -16,7 +16,7 @@
 <script>
 import ListHeader from '../Shared/ListHeader.vue'
 export default {
-    props: ['tasksTodo'],
+    props: ['tasksToday'],
     components: {
       'task': require('components/Tasks/Task.vue').default,
       'list-header': require('components/Shared/ListHeader.vue').default
