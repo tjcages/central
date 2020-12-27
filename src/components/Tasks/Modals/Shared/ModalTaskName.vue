@@ -1,11 +1,11 @@
 <template>
-    <div class="row">
-    <q-input
-        autofocus
-        label="Task name"
+    <div class="col" color="black">
+    <q-input   
         :value="name"
         @input="$emit('update:name', $event)"
         class="col"
+        standout="bg-grey-1"
+        placeholder="Add a new taks"
         ref="name"
         >
         <template v-slot:append>
@@ -13,7 +13,7 @@
             v-if="name"
             name="cancel"
             @click="$emit('update:name', '')"
-            class="cursor-pointer"
+            class="cursor-pointer col"
             />
         </template>
     </q-input>

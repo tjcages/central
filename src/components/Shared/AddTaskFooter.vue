@@ -1,11 +1,39 @@
 <template>
-  <div class="row bg-grey-3 absolute-bottom q-pa-lg">
+  <div class="col bg-grey-3 absolute-bottom q-pb-lg q-pt-sm q-px-sm">
+    <div class="row q-mx-md q-my-sm">
+      <q-button 
+        :v-if="timeSelected == 'Now'"
+        size="md" 
+        icon="hourglass_empty"
+        class="q-pa-md text-color-primary text-weight-bold text-primary"
+        text-color="primary"
+        style="border: 1.5px solid #3696FF"
+       >
+        Now
+      </q-chip>
+      
+      <q-chip 
+        size="md" 
+        icon="schedule"
+        class="q-pa-md"
+       >
+        Later Today
+      </q-chip>
+      
+      <q-chip 
+        size="md" 
+        icon="today"        
+        class="q-pa-md"
+       >
+        Tomorrow
+      </q-chip>
+    </div>      
+    <div class="row q-mb-sm">
       <modal-task-name 
         :name.sync="taskToSubmit.name"
         ref="modalTaskName"
-        class="q-ml-lg"
+        class="q-mx-lg"
       />
-      <q-space />
       <q-btn
         @click="showAddTask = true"
         round
@@ -13,9 +41,10 @@
         color="primary"
         size="24px"
         icon="add"
-        class="q-mr-lg"
+        class="q-mx-lg"
       />
-    </div>
+    </div>''    
+  </div>
 </template>
 
 <script>
@@ -35,7 +64,8 @@
                     dueDate: '',
                     dueTime: '',
                     completed: false
-                }
+                },
+                timeSelected: 'Now'
             }
         },
         methods: {
